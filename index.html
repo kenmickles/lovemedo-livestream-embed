@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>LMD Livestream Embed</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      video {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <video id="video-player" playsinline controls></video>
+    </div>
+    <script src="https://player.live-video.net/1.0.0/amazon-ivs-player.min.js"></script>
+    <script>
+      const PLAYBACK_URL = 'https://d9fc08949ceb.us-east-1.playback.live-video.net/api/video/v1/us-east-1.185010999470.channel.RvwMgYDod1UH.m3u8'
+
+      if (IVSPlayer.isPlayerSupported) {
+        const player = IVSPlayer.create();
+        player.attachHTMLVideoElement(document.getElementById('video-player'));
+        player.load(PLAYBACK_URL);
+        player.play();
+      }
+    </script>
+  </body>
+</html>
